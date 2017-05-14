@@ -13,19 +13,20 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import id.sch.smktelkom_mlg.privateassignment.xirpl423.tmdbmovie.Model.Trailer;
 import id.sch.smktelkom_mlg.privateassignment.xirpl423.tmdbmovie.R;
 
 public class RecycleList extends RecyclerView.Adapter<RecycleList.ViewHolder> {
     private final Context context;
-    private List<TrailerList> urls = new ArrayList<TrailerList>();
+    private List<Trailer> urls = new ArrayList<Trailer>();
     private Activity activity;
 
-    public RecycleList(Context context, List<TrailerList> urls) {
+    public RecycleList(Context context, List<Trailer> urls) {
         this.context = context;
         this.urls = urls;
     }
 
-    public RecycleList(Context context, List<TrailerList> urls, Activity activity) {
+    public RecycleList(Context context, List<Trailer> urls, Activity activity) {
         this.context = context;
         this.urls = urls;
         this.activity = activity;
@@ -42,13 +43,13 @@ public class RecycleList extends RecyclerView.Adapter<RecycleList.ViewHolder> {
 
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
-        final TrailerList trailerList = urls.get(position);
-        holder.vTitle.setText(trailerList.getTitle());
+        final Trailer trailer = urls.get(position);
+        holder.vTitle.setText(trailer.getTitle());
 
         holder.view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                activity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(trailerList.getUrl())));
+                activity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(trailer.getUrl())));
             }
         });
     }

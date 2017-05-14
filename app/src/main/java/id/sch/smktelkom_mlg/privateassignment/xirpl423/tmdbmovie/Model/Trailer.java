@@ -1,9 +1,5 @@
 package id.sch.smktelkom_mlg.privateassignment.xirpl423.tmdbmovie.Model;
 
-/**
- * Created by Ridjal Fathoni on 14/05/2017.
- */
-
 public class Trailer {
     private String title;
     private String url;

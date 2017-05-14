@@ -9,9 +9,8 @@ public class Hasil {
     public int id;
     public String title;
     public String vote_average;
-
+    public String backdrop_path;
     private String poster_path;
-    private String backdrop_path;
     private boolean adult;
     private String release_date;
     private String[] genre_ids;

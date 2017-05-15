@@ -5,20 +5,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.TextView;
+import android.widget.ImageView;
+
+import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import id.sch.smktelkom_mlg.privateassignment.xirpl401.movs.R;
-import id.sch.smktelkom_mlg.privateassignment.xirpl401.movs.Trailer;
+import id.sch.smktelkom_mlg.privateassignment.xirpl423.tmdbmovie.Model.Movie;
+import id.sch.smktelkom_mlg.privateassignment.xirpl423.tmdbmovie.R;
 
-public class TrailerListAdapter extends BaseAdapter {
+public class GridViewAdapter extends BaseAdapter {
     private final Context context;
-    private List<Trailer> urls = new ArrayList<Trailer>();
+    private List<Movie> urls = new ArrayList<Movie>();
 
 
-    public TrailerListAdapter(Context context, List<Trailer> urls) {
+    public GridViewAdapter(Context context, List<Movie> urls) {
         this.context = context;
         this.urls = urls;
     }
@@ -29,7 +31,7 @@ public class TrailerListAdapter extends BaseAdapter {
     }
 
     @Override
-    public Trailer getItem(int position) {
+    public Movie getItem(int position) {
         return urls.get(position);
     }
 
@@ -41,16 +43,20 @@ public class TrailerListAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-
         if (convertView == null) {
             convertView = LayoutInflater.from(context).inflate(
-                    R.layout.item_list_trailer, parent, false);
+                    R.layout.item_poster, parent, false);
         }
 
-        TextView txt_title = (TextView) convertView.findViewById(R.id.txt_tittle);
+        ImageView imageView = (ImageView) convertView.findViewById(R.id.imageView);
 
-        Trailer trailer = getItem(position);
-        txt_title.setText(trailer.getTitle());
+        Movie movie = getItem(position);
+
+        Glide.with(context) //
+                .load(movie.getPoster_path()) //
+                .placeholder(R.drawable.ic_image_black_24dp) //
+                .error(R.drawable.ic_error_black_24dp) //
+                .into(imageView);
 
         return convertView;
     }

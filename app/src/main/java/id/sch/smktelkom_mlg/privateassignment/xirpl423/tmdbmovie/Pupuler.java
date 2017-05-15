@@ -16,7 +16,6 @@ import com.google.gson.Gson;
 
 import java.util.ArrayList;
 
-import id.sch.smktelkom_mlg.privateassignment.xirpl423.tmdbmovie.Adapter.Source;
 import id.sch.smktelkom_mlg.privateassignment.xirpl423.tmdbmovie.Model.Hasil;
 import id.sch.smktelkom_mlg.privateassignment.xirpl423.tmdbmovie.Model.ResponCode;
 import id.sch.smktelkom_mlg.privateassignment.xirpl423.tmdbmovie.Service.GsonReq;

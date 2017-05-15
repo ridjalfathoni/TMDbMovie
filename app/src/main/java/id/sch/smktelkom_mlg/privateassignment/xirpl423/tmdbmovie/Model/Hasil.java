@@ -1,19 +1,23 @@
 package id.sch.smktelkom_mlg.privateassignment.xirpl423.tmdbmovie.Model;
 
+import com.orm.SugarRecord;
+
+import java.io.Serializable;
 /**
  * Created by Ridjal Fathoni on 14/05/2017.
  */
 
-public class Hasil {
-    public String overview;
-    public int id;
-    public String title;
-    public String vote_average;
-    public String backdrop_path;
+public class Hasil extends SugarRecord implements Serializable {
+    public String source;
+
     private String poster_path;
+    private String backdrop_path;
     private boolean adult;
+    private String overview;
     private String release_date;
     private String[] genre_ids;
+    private int id;
+    private String title;
     private String language;
     private String org_title;
     private String org_language;
@@ -21,6 +25,7 @@ public class Hasil {
     private float popularity;
     private int vote_count;
     private boolean video;
+    private float vote_average;
 
     public String getBackdrop_path() {
         return backdrop_path;
@@ -70,7 +75,7 @@ public class Hasil {
         this.genre_ids = genre_ids;
     }
 
-    public int getId() {
+    public int getID() {
         return id;
     }
 
@@ -132,5 +137,13 @@ public class Hasil {
 
     public void setVideo(boolean video) {
         this.video = video;
+    }
+
+    public float getVote_average() {
+        return vote_average;
+    }
+
+    public void setVote_average(float vote_average) {
+        this.vote_average = vote_average;
     }
 }

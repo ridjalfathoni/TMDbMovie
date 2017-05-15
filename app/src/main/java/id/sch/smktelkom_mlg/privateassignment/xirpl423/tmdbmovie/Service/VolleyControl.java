@@ -9,6 +9,8 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.Volley;
 
+import id.sch.smktelkom_mlg.privateassignment.xirpl423.tmdbmovie.MainActivity;
+
 public class VolleyControl extends Application {
 
     public static final String TAG = VolleyControl.class.getSimpleName();
@@ -32,6 +34,10 @@ public class VolleyControl extends Application {
                 if (mInstance == null) mInstance = new VolleyControl(context);
             }
         }
+        return mInstance;
+    }
+
+    public static synchronized VolleyControl getInstance(MainActivity.FetchMovies fetchMovies) {
         return mInstance;
     }
 

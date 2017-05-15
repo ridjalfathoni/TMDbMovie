@@ -5,22 +5,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
-
-import com.bumptech.glide.Glide;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import id.sch.smktelkom_mlg.privateassignment.xirpl423.tmdbmovie.Model.Movie;
 import id.sch.smktelkom_mlg.privateassignment.xirpl423.tmdbmovie.R;
+import id.sch.smktelkom_mlg.privateassignment.xirpl423.tmdbmovie.Trailer;
 
-public class GridViewAdapter extends BaseAdapter {
+public class TrailerList extends BaseAdapter {
     private final Context context;
-    private List<Movie> urls = new ArrayList<Movie>();
+    private List<Trailer> urls = new ArrayList<Trailer>();
 
 
-    public GridViewAdapter(Context context, List<Movie> urls) {
+    public TrailerList(Context context, List<Trailer> urls) {
         this.context = context;
         this.urls = urls;
     }
@@ -31,7 +29,7 @@ public class GridViewAdapter extends BaseAdapter {
     }
 
     @Override
-    public Movie getItem(int position) {
+    public Trailer getItem(int position) {
         return urls.get(position);
     }
 
@@ -43,20 +41,16 @@ public class GridViewAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
+
         if (convertView == null) {
             convertView = LayoutInflater.from(context).inflate(
-                    R.layout.item_poster, parent, false);
+                    R.layout.list_trailer, parent, false);
         }
 
-        ImageView imageView = (ImageView) convertView.findViewById(R.id.imageView);
+        TextView txt_title = (TextView) convertView.findViewById(R.id.txt_tittle);
 
-        Movie movie = getItem(position);
-
-        Glide.with(context) //
-                .load(movie.getPoster_path()) //
-                .placeholder(R.drawable.ic_image_black_24dp) //
-                .error(R.drawable.ic_error_black_24dp) //
-                .into(imageView);
+        Trailer trailer = getItem(position);
+        txt_title.setText(trailer.getTitle());
 
         return convertView;
     }

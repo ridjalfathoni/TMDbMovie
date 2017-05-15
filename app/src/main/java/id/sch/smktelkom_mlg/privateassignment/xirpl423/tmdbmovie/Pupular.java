@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -43,29 +42,22 @@ import id.sch.smktelkom_mlg.privateassignment.xirpl423.tmdbmovie.Service.VolleyC
 /**
  * A simple {@link Fragment} subclass.
  */
-public class Teratas extends Fragment {
+public class Pupular extends Fragment {
 
     android.widget.GridView gv;
 
-    public Teratas() {
+    public Pupular() {
         // Required empty public constructor
     }
 
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        FetchMovies fetchMovies = new FetchMovies();
-        String url = "http://api.themoviedb.org/3/movie/top_rated";
-        fetchMovies.execute(url);
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_teratas, container, false);
-        FetchMovies fetchMovies = new FetchMovies();
-        String url = "http://api.themoviedb.org/3/movie/top_rated";
+        View view = inflater.inflate(R.layout.fragment_pupular, container, false);
+        Pupular.FetchMovies fetchMovies = new Pupular.FetchMovies();
+        String url = "http://api.themoviedb.org/3/movie/popular";
         fetchMovies.execute(url);
         gv = (android.widget.GridView) view.findViewById(R.id.movie_list);
         return view;
@@ -73,7 +65,7 @@ public class Teratas extends Fragment {
 
     public class FetchMovies extends AsyncTask<String, Void, List<Hasil>> {
         final ProgressDialog progressDialog = new ProgressDialog(getActivity());
-        private final String LOG_TAG = Teratas.FetchMovies.class.getSimpleName();
+        private final String LOG_TAG = Pupular.FetchMovies.class.getSimpleName();
 
         @Override
         protected void onPreExecute() {

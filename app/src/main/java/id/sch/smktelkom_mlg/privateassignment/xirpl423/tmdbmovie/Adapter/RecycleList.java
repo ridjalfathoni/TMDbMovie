@@ -16,17 +16,17 @@ import java.util.List;
 import id.sch.smktelkom_mlg.privateassignment.xirpl423.tmdbmovie.R;
 import id.sch.smktelkom_mlg.privateassignment.xirpl423.tmdbmovie.Trailer;
 
-public class RecycleListAdapter extends RecyclerView.Adapter<RecycleListAdapter.ViewHolder> {
+public class RecycleList extends RecyclerView.Adapter<RecycleList.ViewHolder> {
     private final Context context;
     private List<Trailer> urls = new ArrayList<Trailer>();
     private Activity activity;
 
-    public RecycleListAdapter(Context context, List<Trailer> urls) {
+    public RecycleList(Context context, List<Trailer> urls) {
         this.context = context;
         this.urls = urls;
     }
 
-    public RecycleListAdapter(Context context, List<Trailer> urls, Activity activity) {
+    public RecycleList(Context context, List<Trailer> urls, Activity activity) {
         this.context = context;
         this.urls = urls;
         this.activity = activity;

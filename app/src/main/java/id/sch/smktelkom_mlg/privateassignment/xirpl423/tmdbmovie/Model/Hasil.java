@@ -3,11 +3,9 @@ package id.sch.smktelkom_mlg.privateassignment.xirpl423.tmdbmovie.Model;
 import com.orm.SugarRecord;
 
 import java.io.Serializable;
-/**
- * Created by Ridjal Fathoni on 14/05/2017.
- */
 
 public class Hasil extends SugarRecord implements Serializable {
+
     public String source;
 
     private String poster_path;
